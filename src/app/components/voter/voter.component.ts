@@ -1,9 +1,13 @@
 // @ts-ignore
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 
 // @ts-ignore
 import {ColumnMode, DatatableComponent} from '@swimlane/ngx-datatable';
 import {VoterService} from '../../services/voter-service.service';
+import {Page} from '../../models/page';
+import {Voter} from '../../models/voter.model';
+import {Observable} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 
 // @ts-ignore
@@ -14,84 +18,62 @@ import {VoterService} from '../../services/voter-service.service';
 })
 
 export class VoterComponent implements OnInit {
-  // rows = [];
-  //
-  // temp = [];
-  //
-  // columns = [{prop: 'name'}, {name: 'Company'}, {name: 'Gender'}];
-  // @ViewChild(DatatableComponent) table: DatatableComponent;
-  //
-  // ColumnMode = ColumnMode;
-  rows: any = [];
-  totalCount: Number = 0;
-  closeResult: string;
-  dataParams: any = {
-    page_num: '',
-    page_size: ''
-  };
 
-  ngOnInit() {
-    this.dataParams.page_num = 1;
-    this.dataParams.page_size = 20;
-    this.getAllVoter();
-  }
+  public title: String = '';
 
+  voters$: Observable<Voter[]>;
 
-  getAllVoter() {
+  editing = {};
 
-    this.voter_service.getall().subscribe((data) => {
-      this.rows = data;
-      this.totalCount = data.length;
-      console.log(data);
+  // utilisé pour l'affichage dans le html
+  rows = [];
+
+  // sera utilisé pour la recherche
+  temp = [];
+
+  @ViewChild(DatatableComponent, {static: false}) table: DatatableComponent;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private voterService: VoterService,
+  ) {
+    this.activatedRoute.data.subscribe(data => {
+      this.title = data.title;
     });
+
   }
 
-  constructor(private voter_service: VoterService) {
-    // this.fetch(data => {
-    //   // cache our list
-    //   this.temp = [...data];
-    //
-    //   // push our inital complete list
-    //   this.rows = data;
-    // });
-    this.voter_service.getall().subscribe((data) => {
-      this.rows = data;
-      console.log(data);
+  ngOnInit(): void {
+    this.voterService.getall().subscribe((voters) => {
+      this.rows = voters;
+      this.temp = voters;
+      // console.log("Les données",this.rows);
     });
   }
 
 
-  fetch(cb) {
-    const req = new XMLHttpRequest();
-    req.open('GET', `assets/data/company.json`);
+  showCrupdateProfessor() {
 
-    req.onload = () => {
-      cb(JSON.parse(req.response));
-    };
-
-    req.send();
   }
 
-  // updateFilter(event) {
-  //   const val = event.target.value.toLowerCase();
-  //
-  //   // filter our data
-  //   const temp = this.temp.filter(function (d) {
-  //     return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-  //   });
-  //
-  //   // update the rows
-  //   this.rows = temp;
-  //   // Whenever the filter changes, always go back to the first page
-  //   this.table.offset = 0;
-  // }
+  updateFilter(event) {
+    const val = event.target.value.toLowerCase();
+    // filter our data
+    const temp = this.temp.filter(function (d) {
+      return d.nom.toLowerCase().indexOf(val) !== -1 || !val;
+    });
 
-
-  accept(row: any) {
-    console.log(row);
+    // update the rows
+    this.rows = temp;
+    // Whenever the filter changes, always go back to the first page
+    this.table.offset = 0;
   }
 
-  reject(value: any) {
-    console.log(value);
+
+  Accept() {
+  }
+
+  Reject(value: any) {
+
   }
 }

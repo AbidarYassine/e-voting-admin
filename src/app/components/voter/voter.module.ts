@@ -5,6 +5,7 @@ import {VoterRoutingModule} from './voter-routing.module';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 
@@ -17,7 +18,8 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     VoterRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    Ng2SmartTableModule
   ]
 })
 export class VoterModule {

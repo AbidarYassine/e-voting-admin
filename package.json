@@ -53,6 +53,8 @@
     "flag-icon-css": "^3.5.0",
     "font-awesome": "^4.7.0",
     "ng2-charts": "^2.4.2",
+    "ng2-completer": "^9.0.1",
+    "ng2-smart-table": "^1.7.2",
     "ngx-bootstrap": "^6.2.0",
     "ngx-perfect-scrollbar": "^10.1.0",
     "rxjs": "^6.6.6",
