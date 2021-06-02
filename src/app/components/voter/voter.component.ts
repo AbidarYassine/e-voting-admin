@@ -4,10 +4,12 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 // @ts-ignore
 import {ColumnMode, DatatableComponent} from '@swimlane/ngx-datatable';
 import {VoterService} from '../../services/voter-service.service';
-import {Page} from '../../models/page';
 import {Voter} from '../../models/voter.model';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
+import {isValidLimit} from 'ngx-bootstrap/timepicker/timepicker.utils';
 
 
 // @ts-ignore
@@ -18,6 +20,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 
 export class VoterComponent implements OnInit {
+  cin = new FormControl('', [Validators.required]);
+  voter_found: boolean = false;
+  voter: Voter;
 
   public title: String = '';
 
@@ -75,5 +80,35 @@ export class VoterComponent implements OnInit {
 
   Reject(value: any) {
 
+  }
+
+  findByCin(value?: string) {
+    this.voterService.getall().subscribe((voters: any) => {
+      let found;
+      console.log(value);
+      if (value) {
+        found = voters.filter(voter => voter.cin === value);
+      } else {
+        found = voters.filter(voter => voter.cin === this.cin.value);
+      }
+      if (found.length === 0) {
+        this.voter_found = false;
+        Swal.fire({
+          title: 'Voter Not  Found!',
+          icon: 'error',
+          confirmButtonText: 'ok'
+        });
+      } else {
+        this.voter_found = true;
+        this.voter = found[0];
+        console.log('voter found', this.voter);
+        Swal.fire({
+          title: 'Voter Found!',
+          text: 'Check Data below',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        });
+      }
+    });
   }
 }

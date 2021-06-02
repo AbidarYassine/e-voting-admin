@@ -7,6 +7,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     MatTableModule,
     MatPaginatorModule,
     NgxDatatableModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class VoterModule {

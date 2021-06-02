@@ -2,9 +2,18 @@ table {
   width: 100%;
 }
 
+.card-content {
+  width: 100%;
+}
+
 .ngx-datatable.bootstrap {
   box-shadow: none;
   font-size: 13px;
+  width: 100%;
+}
+
+.cin-hand {
+  cursor: pointer;
 }
 
 .ngx-datatable.bootstrap .datatable-header {

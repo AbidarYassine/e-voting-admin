@@ -2,6 +2,7 @@
   "voter": [
     {
       "id": 1,
+      "cin": "G010",
       "nom": "abidar",
       "prenom": "yassine",
       "cart_recto": "https://cdn.icon-icons.com/icons2/1736/PNG/512/4043260-avatar-male-man-portrait_113269.png",
@@ -9,6 +10,7 @@
     },
     {
       "id": 2,
+      "cin": "G011",
       "nom": "abdo",
       "prenom": "abdo",
       "cart_recto": "https://www.mediatrium.com/wp-content/uploads/2020/05/avatar-mediatrium.png",
@@ -16,6 +18,7 @@
     },
     {
       "id": 3,
+      "cin": "G012",
       "nom": "khadija",
       "prenom": "khadija",
       "cart_recto": "https://lh3.googleusercontent.com/proxy/cywYo0sSnpiIeU9sc31cJBSJ1IOJXWxH-bUkFbTFxzlM4oekolKu7kIVGzSJvqhAzSGOiDLr6-fnhp19YOu3WxdhZ4Pxz-jsA2VWg02_EHmSeoOMME2HoQ",
@@ -23,6 +26,7 @@
     },
     {
       "id": 4,
+      "cin": "G014",
       "nom": "abidar",
       "prenom": "yassine",
       "cart_recto": "https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png",
@@ -30,8 +34,17 @@
     },
     {
       "id": 5,
+      "cin": "G015",
       "nom": "abidar",
       "prenom": "yassine",
+      "cart_recto": "http://moicestnaya.com/wp-content/uploads/2018/10/getavataaarsCom.png.png",
+      "cart_verso": "http://moicestnaya.com/wp-content/uploads/2018/10/getavataaarsCom.png.png"
+    },
+    {
+      "id": 6,
+      "cin": "G016",
+      "nom": "soulaimane",
+      "prenom": "chekroune",
       "cart_recto": "http://moicestnaya.com/wp-content/uploads/2018/10/getavataaarsCom.png.png",
       "cart_verso": "http://moicestnaya.com/wp-content/uploads/2018/10/getavataaarsCom.png.png"
     }
