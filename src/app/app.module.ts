@@ -43,9 +43,10 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {ChartsModule} from 'ng2-charts';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonsModule} from 'ngx-bootstrap/buttons';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // import { PartiRoutingComponent } from './components/parti-routing/parti-routing.component';
 
@@ -69,6 +70,8 @@ import {HttpClientModule} from '@angular/common/http';
     ButtonsModule,
     AppSidebarModule,
     HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,

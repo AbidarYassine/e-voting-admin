@@ -1,1 +1,57 @@
-<p>area works!</p>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add a new area</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="areaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Area name :</label>
+        <input type="text" class="form-control" formControlName="areaName">
+      </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+    </form>
+
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add a new area</button>
+
+<hr>
+
+<section id="editing-DataTable" class="mb-3">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title" style="display: inline-block">Areas</h4>
+          <input type='text' style='padding:8px;margin:15px auto;width:30%; float: right;'
+                 placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>
+        </div>
+        <div class="card-content ">
+          <div class="card-body">
+            <ngx-datatable #mydatatable class="bootstrap" [headerHeight]="50" [limit]="5" [columnMode]="'force'"
+                           [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+              <ngx-datatable-column name="Id" prop="id">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Name" prop="name">
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

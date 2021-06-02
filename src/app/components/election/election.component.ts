@@ -1,28 +1,31 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Parti} from '../../models/parti.model';
 import {Observable} from 'rxjs';
 import {DatatableComponent} from '@swimlane/ngx-datatable';
 import {ActivatedRoute} from '@angular/router';
-import {PartiService} from '../../services/parti-service.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Election} from '../../models/election.model';
+import {ElectionService} from '../../services/election-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-parti',
-  templateUrl: './parti.component.html',
-  styleUrls: ['./parti.component.scss']
+  selector: 'app-election',
+  templateUrl: './election.component.html',
+  styleUrls: ['./election.component.scss']
 })
-export class PartiComponent implements OnInit {
-  partiForm = new FormGroup({
-    partiName: new FormControl('', Validators.required)
+export class ElectionComponent implements OnInit {
+  electionForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    year: new FormControl('', Validators.required),
+    startDate: new FormControl('', Validators.required),
+    endDate: new FormControl('', Validators.required),
   });
 
-  partiName = new FormControl('', [Validators.required]);
-  parti_found: boolean = false;
-  parti: Parti;
+  electionName = new FormControl('', [Validators.required]);
+  election_found: boolean = false;
+  election: Election;
   title: String = '';
-  parties: Observable<Parti[]>;
+  elections: Observable<Election[]>;
   editing = {};
   rows = [];
   temp = [];
@@ -31,7 +34,7 @@ export class PartiComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private partiService: PartiService,
+    private electionService: ElectionService,
     private modalService: NgbModal
   ) {
     this.activatedRoute.data.subscribe(data => {
@@ -41,7 +44,7 @@ export class PartiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.partiService.getAll().subscribe((voters) => {
+    this.electionService.getAll().subscribe((voters) => {
       this.rows = voters;
       this.temp = voters;
       // console.log("Les données",this.rows);
@@ -74,28 +77,28 @@ export class PartiComponent implements OnInit {
 
   }
 
-  findBypartiName(value?: string) {
-    this.partiService.getAll().subscribe((parties: any) => {
+  findByAreaName(value?: string) {
+    this.electionService.getAll().subscribe((areas: any) => {
       let found;
       console.log(value);
       if (value) {
-        found = parties.filter(parti => parti.name === value);
+        found = areas.filter(area => area.area === value);
       } else {
-        found = parties.filter(parti => parti.name === this.partiName.value);
+        found = areas.filter(area => area.area === this.electionName.value);
       }
       if (found.length === 0) {
-        this.parti_found = false;
+        this.election_found = false;
         Swal.fire({
-          title: 'parti Not  Found!',
+          title: 'Election Not  Found!',
           icon: 'error',
           confirmButtonText: 'ok'
         });
       } else {
-        this.parti_found = true;
-        this.parti = found[0];
-        console.log('parti found', this.parti);
+        this.election_found = true;
+        this.election = found[0];
+        console.log('Area found', this.election);
         Swal.fire({
-          title: 'parti Found!',
+          title: 'Election Found!',
           text: 'Check Data below',
           icon: 'success',
           confirmButtonText: 'Cool'
@@ -123,7 +126,8 @@ export class PartiComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.partiForm.value);
-    this.partiService.save(this.partiForm.value);
+    const value = this.electionForm.value;
+    console.warn(this.electionForm.value);
+    this.electionService.save(value.name, value.year, value.startDate, value.endDate);
   }
 }

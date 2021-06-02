@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CandidateComponent} from '../candidate/candidate.component';
+import {PartiComponent} from './parti.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: CandidateComponent,
+    component: PartiComponent,
     data: {
       title: 'partis'
     }
