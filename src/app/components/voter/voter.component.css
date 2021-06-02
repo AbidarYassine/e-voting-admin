@@ -1,0 +1,118 @@
+table {
+  width: 100%;
+}
+
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+.ngx-datatable.bootstrap {
+  background-color: transparent;
+  box-shadow: 0 0 0 #000;
+}
+
+.ngx-datatable.scroll-vertical {
+  height: 300px;
+}
+
+.no-detail-row .datatable-row-detail {
+  display: none !important;
+}
+
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover .datatable-row-group,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover .datatable-row-group,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+  background-color: red !important;
+}
+
+.datatable-body-cell {
+  color: #106cc8;
+}
+
+.datatable-icon-right {
+  text-decoration: none !important;
+}
+
+.ngx-datatable.bootstrap .empty-row {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ngx-datatable.bootstrap .datatable-footer {
+  background-color: transparent;
+  color: red;
+}
+
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+  color: blue;
+}
+
+.pager li > a,
+.pager li > span {
+  border-color: black;
+}
+
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a,
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+  background-color: blue;
+  border-color: blue;
+  color: #fff;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+  border: 0;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  -webkit-transform: translate(0, 0) scale(1, 1);
+  transform: translate(0, 0) scale(1, 1);
+  background-color: #aad1f9;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container .bar {
+  transition: all .2s linear;
+  -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: -webkit-transform .2s linear;
+  transition: transform .2s linear;
+  background-color: #106cc8;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  height: 5px;
+}
+
+.wrapper .aside-container .aside-inner,
+.wrapper .aside-container {
+  width: 230px;
+}

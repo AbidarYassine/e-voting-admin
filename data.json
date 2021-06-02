@@ -1,0 +1,39 @@
+{
+  "voter": [
+    {
+      "id": 1,
+      "nom": "abidar",
+      "prenom": "yassine",
+      "cart_recto": "url",
+      "cart_verso": "url"
+    },
+    {
+      "id": 2,
+      "nom": "abdo",
+      "prenom": "abdo",
+      "cart_recto": "url",
+      "cart_verso": "url"
+    },
+    {
+      "id": 3,
+      "nom": "khadija",
+      "prenom": "khadija",
+      "cart_recto": "url",
+      "cart_verso": "url"
+    },
+    {
+      "id": 4,
+      "nom": "abidar",
+      "prenom": "yassine",
+      "cart_recto": "url",
+      "cart_verso": "url"
+    },
+    {
+      "id": 5,
+      "nom": "abidar",
+      "prenom": "yassine",
+      "cart_recto": "url",
+      "cart_verso": "url"
+    }
+  ]
+}

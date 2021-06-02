@@ -1,4 +1,4 @@
-import {INavData} from '@coreui/angular';
+import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
@@ -13,17 +13,22 @@ export const navItems: INavData[] = [
   {
     name: 'Candidates',
     url: '/candidates',
-    icon: 'icon-pencil'
+    icon: 'icon-people'
   },
   {
     name: 'Partis',
     url: '/partis',
-    icon: 'icon-pencil'
+    icon: 'icon-map'
   },
   {
     name: 'Areas',
     url: '/areas',
-    icon: 'icon-pencil'
+    icon: 'icon-map'
+  },
+  {
+    name: 'Voters',
+    url: '/voters',
+    icon: 'icon-people'
   },
   // {
   //   title: true,

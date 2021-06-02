@@ -1,0 +1,73 @@
+<div class="container">
+
+  <h1>Accept Voters !!</h1>
+  <p>some text</p>
+<!--  <div class="card">-->
+<!--    <div class="card-header">-->
+<!--      <h4 class="card-title" style="display: inline-block">Professors</h4>-->
+<!--      <input type='text' style='padding:8px;margin:15px auto;width:30%; display: inline-block; float: right'-->
+<!--             placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>-->
+<!--    </div>-->
+<!--    <div class="card-content">-->
+<!--      <div class="card-body">-->
+<!--        <ngx-datatable #mydatatable class="bootstrap" [headerHeight]="50" [limit]="5" [columnMode]="'force'"-->
+<!--                       [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">-->
+<!--          <ngx-datatable-column name="Numéro" prop="id">-->
+<!--            <ng-template ngx-datatable-cell-template let-value="value">-->
+<!--              {{value}}-->
+<!--            </ng-template>-->
+<!--          </ngx-datatable-column>-->
+<!--          <ngx-datatable-column name="Nom" prop="nom">-->
+<!--            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">-->
+<!--              {{row.nom}}-->
+<!--            </ng-template>-->
+<!--          </ngx-datatable-column>-->
+<!--          <ngx-datatable-column name="Prénom" prop="prenom">-->
+<!--            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">-->
+<!--              {{row.prenom}}-->
+<!--            </ng-template>-->
+<!--          </ngx-datatable-column>-->
+<!--          <ngx-datatable-column name="Actions" prop="id" sortable="false">-->
+<!--            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">-->
+<!--                  <span title="Accept">-->
+<!--                    <a class="success p-0" href="javascript:void(0)" (click)="accept(row)"-->
+<!--                       data-original-title="" title="Accept">-->
+<!--                      <i class="icon-like mr-2"></i>-->
+<!--                    </a>-->
+<!--                     <a class="info p-0" href="javascript:void(0)" (click)="reject(value)"-->
+<!--                        data-original-title="" title="Reject">-->
+<!--                      <i class="icon-dislike mr-2"></i>-->
+<!--                    </a>-->
+<!--                  </span>-->
+<!--            </ng-template>-->
+<!--          </ngx-datatable-column>-->
+<!--        </ngx-datatable>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+  <div class="card card-default">
+    <div class="content-heading">
+      <h2>Example of ngx-datatable</h2>
+    </div>
+    <div class="card-body">
+
+      <ngx-datatable class='bootstrap no-detail-row' [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'"
+                     [rows]='rows' [count]="totalCount" [limit]="dataParams.page_size">
+        <ngx-datatable-column name="Title 1" prop="title_line1"></ngx-datatable-column>
+        <ngx-datatable-column name="Title 2" prop="title_line2"></ngx-datatable-column>
+        <ngx-datatable-column name="Type" prop="type"></ngx-datatable-column>
+        <ngx-datatable-column name="Order No" prop="order_number"></ngx-datatable-column>
+        <ngx-datatable-column name="Action" widht="600">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            <div class="text-left">
+              <a title="Edit" class="mr-2" href="javascript:void(0);">Edit</a>
+              <a title="Delete" href="javascript:void(0);"
+              >Delete</a>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+</div>

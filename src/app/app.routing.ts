@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
-import {DefaultLayoutComponent} from './containers';
+import { DefaultLayoutComponent } from './containers';
 
-import {P404Component} from './views/error/404.component';
-import {P500Component} from './views/error/500.component';
-import {LoginComponent} from './views/login/login.component';
-import {RegisterComponent} from './views/register/register.component';
+import { P404Component } from './views/error/404.component';
+import { P500Component } from './views/error/500.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
   {
@@ -66,13 +66,17 @@ export const routes: Routes = [
         path: 'areas',
         loadChildren: () => import('./components/area/area.module').then(m => m.AreaModule)
       },
+      {
+        path: 'voters',
+        loadChildren: () => import('./components/voter/voter.module').then(m => m.VoterModule)
+      },
     ]
   },
-  {path: '**', component: P404Component}
+  { path: '**', component: P404Component }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -45,6 +45,7 @@ import {ChartsModule} from 'ng2-charts';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {ButtonsModule} from 'ngx-bootstrap/buttons';
+import {HttpClientModule} from '@angular/common/http';
 
 // import { PartiRoutingComponent } from './components/parti-routing/parti-routing.component';
 
@@ -66,6 +67,8 @@ import {ButtonsModule} from 'ngx-bootstrap/buttons';
     IconSetModule.forRoot(),
     FormsModule,
     ButtonsModule,
+    AppSidebarModule,
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
