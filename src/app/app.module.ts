@@ -48,13 +48,11 @@ import {ButtonsModule} from 'ngx-bootstrap/buttons';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AddCandidateComponent} from './components/candidate/add-candidate/add-candidate.component';
-import {CandidateModule} from './components/candidate/candidate.module';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 
-
-// import { PartiRoutingComponent } from './components/parti-routing/parti-routing.component';
 @NgModule({
   imports: [
     BrowserModule,
