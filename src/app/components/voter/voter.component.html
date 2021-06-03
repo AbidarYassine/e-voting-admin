@@ -11,7 +11,7 @@
           <div class="card-body">
             <ngx-datatable #mydatatable class="bootstrap" [headerHeight]="50" [limit]="5" [columnMode]="'force'"
                            [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
-              <ngx-datatable-column name="Numéro" prop="id">
+              <ngx-datatable-column name="Numéro" prop="voterId">
                 <ng-template ngx-datatable-cell-template let-value="value">
                   {{value}}
                 </ng-template>
@@ -31,15 +31,15 @@
                   {{value}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Image" prop="cart_recto">
+              <ngx-datatable-column name="Image" prop="carteIdRecto">
                 <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-                  <img style="width: 50px;height: 50px" [src]="row.cart_recto" alt="cart recto">
+                  <img style="width: 50px;height: 50px" [src]="row.carteIdRecto" alt="cart recto">
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Actions" prop="id" sortable="false">
+              <ngx-datatable-column name="Actions" prop="voterId" sortable="false">
                 <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
                   <span title="Accept">
-                    <a class="text-success p-0" href="javascript:void(0)" (click)="Accept()"
+                    <a class="text-success p-0" href="javascript:void(0)" (click)="Accept(row.voterId)"
                        data-original-title="" title="Accept">
                       <i class="fa fa-check fa-2x mr-2"></i>
                     </a>
@@ -80,11 +80,11 @@
           <li class="list-group-item"><span class="font-weight-bold">Nom:</span> {{voter.prenom}}</li>
           <li class="list-group-item">
             <span class="font-weight-bold">Cart Recto:</span>
-            <img style="height: 100px;width: 100px;" [src]="voter.cart_recto" alt="Carte Recto">
+            <img style="height: 100px;width: 100px;" [src]="voter.carteIdRecto" alt="Carte Recto">
           </li>
           <li class="list-group-item">
             <span class="font-weight-bold">Cart Verso:</span>
-            <img style="height: 100px;width: 100px;" [src]="voter.cart_recto" alt="Carte Recto">
+            <img style="height: 100px;width: 100px;" [src]="voter.carteIdVerso" alt="Carte Recto">
           </li>
         </ul>
       </div>

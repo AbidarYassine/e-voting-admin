@@ -1,1 +1,42 @@
-<p>work</p>
+<section id="editing-DataTable" class="mb-3">
+  <div class="row">
+    <div class="col-sm-12">
+      <p><a href="javascript:void(0)" (click)="showAddCandidatModal()"
+            class="btn btn-raised mr-1 shadow-z-2 btn-primary">Add a new candidate</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title" style="display: inline-block">Candidates</h4>
+          <input type='text' style='padding:8px;margin:15px auto;width:30%; display: inline-block; float: right'
+                 placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>
+        </div>
+        <div class="card-content ">
+          <div class="card-body">
+            <ngx-datatable #mydatatable class="bootstrap" [headerHeight]="50" [limit]="5" [columnMode]="'force'"
+                           [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+              <ngx-datatable-column name="Candidate Id" prop="candidatId">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Nom SGP" prop="nomSGP">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Prenom SGP" prop="prenomSGP">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Count" prop="count">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value}}
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -50,6 +50,7 @@ export class VoterComponent implements OnInit {
 
   ngOnInit(): void {
     this.voterService.getall().subscribe((voters) => {
+      console.log(voters);
       this.rows = voters;
       this.temp = voters;
       // console.log("Les données",this.rows);
@@ -75,7 +76,8 @@ export class VoterComponent implements OnInit {
   }
 
 
-  Accept() {
+  Accept(value: any) {
+    console.log(value);
   }
 
   Reject(value: any) {

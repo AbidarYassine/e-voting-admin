@@ -1,8 +1,15 @@
-export interface Voter {
-  id?: number;
+export class Voter {
+  voterId: string = '';
   nom: string;
   prenom: string;
   cin: string;
-  cart_recto: string;
-  cart_verso: string;
+  carteIdRecto: string;
+  carteIdVerso: string;
+  areaId: number;
+  authorized: boolean;
+  rejected: boolean;
+  voted: boolean = false;
+  ballotId: string;
+  email: string;
+  type: string = 'voter';
 }

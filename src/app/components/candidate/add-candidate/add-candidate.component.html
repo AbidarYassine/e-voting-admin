@@ -1,0 +1,47 @@
+<div id="contact" class="container">
+  <div class="row d-flex justify-content-between">
+    <div class="col-md-12">
+      <h1 class="title-principal">Ajouter un nouveau candidat</h1>
+      <p class="lead title-secondary">Bowred By Blockchain </p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12">
+      <form #f="ngForm" class="form-container">
+        <div class="form-group">
+          <input class="form-control" ngModel #parti="ngModel" name="parti" required matInput placeholder="Parti">
+          <div *ngIf="parti.invalid && parti.touched">
+            <mat-error *ngIf="parti.errors?.required">Parti est obligatoire !!</mat-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" ngModel #nomSGP="ngModel" name="nomSGP" required matInput placeholder="Nom">
+          <div *ngIf="nomSGP.invalid && nomSGP.touched">
+            <mat-error *ngIf="nomSGP.errors?.required">Nom est obligatoire !!</mat-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" ngModel #prenomSGP="ngModel" name="prenomSGP" required matInput
+                 placeholder="Prenom">
+          <div *ngIf="prenomSGP.invalid && prenomSGP.touched">
+            <mat-error *ngIf="prenomSGP.errors?.required">prenom est obligatoire !!</mat-error>
+          </div>
+        </div>
+        <div class="form-group">
+                            <textarea class="form-control" ngModel #description="ngModel" name="description" matInput
+                                      placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="region">Region</label>
+          <mat-select id="region" ngModel #region="ngModel" name="region" required placeholder="Region">
+            <mat-option *ngFor="let regi of regions" value="region">{{regi}}</mat-option>
+          </mat-select>
+        </div>
+      </form>
+
+      <button (click)="submitForm(f)" class="btn btn-primary btn-block" [disabled]="f.invalid" type="button" mdbBtn
+              color="primary" mdbWavesEffect>Send
+        <i class="fa fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
