@@ -1,16 +1,31 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add a new parti</h4>
+    <h4 class="modal-title" id="modal-basic-title">Add a new election</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
 
-    <form [formGroup]="partiForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="electionForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label>Parti name :</label>
-        <input type="text" class="form-control" formControlName="partiName">
+        <label>Area name :</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+
+      <div class="form-group">
+        <label>Area name :</label>
+        <input type="number" class="form-control" formControlName="year">
+      </div>
+
+      <div class="form-group">
+        <label>Area name :</label>
+        <input type="date" class="form-control" formControlName="startDate">
+      </div>
+
+      <div class="form-group">
+        <label>Area name :</label>
+        <input type="date" class="form-control" formControlName="endDate">
       </div>
 
       <div class="modal-footer">
@@ -21,7 +36,7 @@
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add a new parti</button>
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add a new election</button>
 
 <hr>
 
@@ -30,7 +45,7 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title" style="display: inline-block">Parties</h4>
+          <h4 class="card-title" style="display: inline-block">Areas</h4>
           <input type='text' style='padding:8px;margin:15px auto;width:30%; float: right;'
                  placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>
         </div>

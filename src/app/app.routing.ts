@@ -70,6 +70,10 @@ export const routes: Routes = [
         path: 'voters',
         loadChildren: () => import('./components/voter/voter.module').then(m => m.VoterModule)
       },
+      {
+        path: 'elections',
+        loadChildren: () => import('./components/election/election.module').then(m => m.ElectionModule)
+      },
     ]
   },
   { path: '**', component: P404Component }

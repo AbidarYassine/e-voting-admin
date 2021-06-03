@@ -26,6 +26,11 @@ export const navItems: INavData[] = [
     icon: 'icon-map'
   },
   {
+    name: 'Elections',
+    url: '/elections',
+    icon: 'icon-map'
+  },
+  {
     name: 'Voters',
     url: '/voters',
     icon: 'icon-people'
